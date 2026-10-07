@@ -70,7 +70,15 @@ function showHome(){
  <div class="card"><h2>🎯 Como estudar</h2><p>Faça uma semana por vez. Leia a explicação, repita os exemplos em voz alta, faça o quiz e marque a aula como concluída.</p><button class="btn" onclick="showWeek(1)">Começar semana 1</button></div>
  <div class="card"><h2>🗣️ Regra de ouro</h2><p>Seu objetivo não é decorar inglês. É <b>usar inglês</b>. Fale, escreva e tente responder antes de olhar a tradução.</p></div>
  <div class="card"><h2>💾 Progresso</h2><p>O progresso é salvo automaticamente neste navegador. O site funciona offline depois de carregado.</p><button class="btn secondary" onclick="showWeeks()">Ver todas as semanas</button></div></div>
- <div class="card" style="margin-top:18px"><h2>📅 Estrutura semanal</h2><table class="table"><tr><th>Dia</th><th>Atividade</th></tr><tr><td>Segunda</td><td>Gramática + explicação</td></tr><tr><td>Terça</td><td>Listening</td></tr><tr><td>Quarta</td><td>Exercícios</td></tr><tr><td>Quinta</td><td>Speaking</td></tr><tr><td>Sexta</td><td>Reading + vocabulary</td></tr><tr><td>Sábado</td><td>Revisão / prova</td></tr></table></div>`;
+ <div class="card" style="margin-top:18px"><h2>🗺️ Mapa completo do semestre</h2>
+<p><b>Módulo 1 — Base:</b> semanas 1–4 · apresentações, to be, Present Simple e perguntas.</p>
+<p><b>Módulo 2 — Passado:</b> semanas 5–8 · there is/are, Past Simple e narrativa.</p>
+<p><b>Módulo 3 — Vida real:</b> semanas 9–12 · futuro, modais, viagens e prova de módulo.</p>
+<p><b>Módulo 4 — Tempos verbais:</b> semanas 13–16 · continuous, Present Perfect e revisão.</p>
+<p><b>Módulo 5 — Fluência:</b> semanas 17–20 · comparações, conditionals, phrasal verbs e conversação.</p>
+<p><b>Módulo 6 — Consolidação:</b> semanas 21–24 · listening, speaking, reading, writing e prova final.</p>
+</div>
+<div class="card" style="margin-top:18px"><h2>📅 Estrutura semanal</h2><table class="table"><tr><th>Dia</th><th>Atividade</th></tr><tr><td>Segunda</td><td>Gramática + explicação</td></tr><tr><td>Terça</td><td>Listening</td></tr><tr><td>Quarta</td><td>Exercícios</td></tr><tr><td>Quinta</td><td>Speaking</td></tr><tr><td>Sexta</td><td>Reading + vocabulary</td></tr><tr><td>Sábado</td><td>Revisão / prova</td></tr></table></div>`;
  updateSide(); document.getElementById("heroPct").textContent=Math.round(Object.values(progress).filter(Boolean).length/24*100)+"%";
 }
 function showWeeks(){
@@ -86,7 +94,19 @@ function showWeek(n){
  <div class="section"><h2>🗣️ Exemplos</h2>${x.examples.map(e=>`<div class="example">${e}</div>`).join("")}</div>
  <div class="section"><h2>🧠 Vocabulário</h2><div class="bar">${x.vocab.map(v=>`<span class="tag">${v}</span>`).join("")}</div></div>
  <div class="section"><h2>✏️ Exercícios</h2>${q}</div>
- <div class="tip"><b>Speaking:</b> explique este conteúdo em voz alta para sua professora/namorada por pelo menos 1 minuto. Na semana de revisão, aumente para 2–5 minutos.</div>
+ <div class="card" style="margin-top:18px;background:#fafafa">
+<h2>👩‍🏫 Como ensinar esta aula</h2>
+<p><b>1.</b> Explique a regra em português por no máximo 3 minutos.</p>
+<p><b>2.</b> Leia cada exemplo em inglês duas vezes e peça para ela repetir.</p>
+<p><b>3.</b> Troque as informações do exemplo pela vida real dela.</p>
+<p><b>4.</b> Faça as perguntas sem mostrar a resposta e peça frases completas.</p>
+<p><b>5.</b> Termine com o desafio oral abaixo.</p>
+</div>
+<div class="tip"><b>🗣️ Speaking challenge:</b> explique este conteúdo em voz alta por pelo menos 1 minuto. Na semana de revisão, aumente para 2–5 minutos.</div>
+<div class="card" style="margin-top:18px">
+<h2>✍️ Tarefa da aula</h2>
+<p>Escreva 5 frases novas usando a estrutura desta semana e depois leia todas em voz alta. Para transformar o exercício em conversa, faça uma pergunta para a outra pessoa usando a mesma estrutura.</p>
+</div>
  <div class="bar" style="margin-top:20px"><button class="btn" onclick="completeWeek(${n})">${progress[n]?'✓ Semana concluída':'Marcar como concluída'}</button><button class="btn secondary" onclick="showWeek(${Math.min(24,n+1)})">Próxima semana →</button></div>
  </article>`;
 }
